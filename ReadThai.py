@@ -1,6 +1,6 @@
 import json as js
 import numpy as np
-
+import codecs
 thaiCharCheck = []
 
 def genThaiCharCheck():
@@ -36,12 +36,12 @@ def readThaiFile():
 
     return  listword
 
-def descwordList(listword):
-    # newlist = []
-    for word in listword:
-        if word[0]
 
 if __name__ == "__main__":
     genThaiCharCheck()
     listword = readThaiFile()
-    descwordList(listword)
+    with codecs.open("filltext.txt", "w", "utf-8") as file:
+        for word in listword:
+            file.write(word+"\n")
+
+    file.close()

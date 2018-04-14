@@ -27,11 +27,14 @@ def compute():
 
     lastname = copy.deepcopy(namelist)
     print(unique_classes)
-    for filename in os.listdir("name"):
+    countname = 0
+    for filename in os.listdir("FullName"):
         print(filename)
-        with open("name/"+filename,'r', encoding='utf-8') as file:
+        with open("FullName/"+filename,'r', encoding='utf-8') as file:
             for line in file:
-                name = line.split(" ")
+                countname+=1
+                fullname = line.split("\n")[0]
+                name = fullname.split(" ")
                 if len(name) == 2:
                     surname = name[1].split("\n")[0]
                 else:
@@ -49,7 +52,7 @@ def compute():
                         lss = lastname[eachCharName]
                         lss.extend([surname])
                         break
-
+    print("total name %d"%countname)
     # clean duplicate name and surname
     for eachclass in unique_classes:
         lss = namelist[eachclass]
